@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+
+# Creates symlinks for git hooks.
+
+REPO_TOPLEVEL=$(dirname $(realpath $0))
+
+HOOKS=(pre-commit)
+
+echo "-- Installing Git hooks: (${HOOKS[@]})"
+
+function _add_git_hook
+{
+    if [ ! -L $REPO_TOPLEVEL/.git/hooks/$1 ] ; then
+	echo "-- Adding symlink for $1 hook:"
+        echo "--     $REPO_TOPLEVEL/hooks/$1 => $REPO_TOPLEVEL/.git/hooks/$1"
+	ln -s $REPO_TOPLEVEL/hooks/$1 $REPO_TOPLEVEL/.git/hooks/$1
+    else
+	if [ ! -e "$REPO_TOPLEVEL/.git/hooks/$1" ] ; then
+	    # Link is broken
+	    echo "-- Repairing symlink for $1 hook:"
+            echo "--     $REPO_TOPLEVEL/hooks/$1 => $REPO_TOPLEVEL/.git/hooks/$1"
+	    rm $REPO_TOPLEVEL/.git/hooks/$1
+	    ln -s $REPO_TOPLEVEL/hooks/$1 $REPO_TOPLEVEL/.git/hooks/$1
+	else
+	    echo "-- Symlink for $1 hook already exists"
+	fi
+    fi
+}
+
+for hook in ${HOOKS[@]} ; do
+    _add_git_hook $hook
+done

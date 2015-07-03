@@ -1,0 +1,48 @@
+\documentclass{beamer}
+
+\usetheme{Szeged}
+\usepackage{xcolor}
+
+\usepackage{amssymb,amsmath,mathrsfs}
+\usepackage{catchfile,etoolbox}
+\usepackage{subfig}
+\usepackage{epsfig,psfrag}
+\usepackage[update]{epstopdf}
+
+\usepackage{xspace}
+
+\usepackage{graphicx}
+\graphicspath{{figs/}}
+\DeclareGraphicsExtensions{.pdf,.eps,.jpg,.png}
+
+\usepackage{media9}
+\addmediapath{videos}
+
+\usepackage{rsinnet}
+
+\title[Energy Shaping]{Energy Shaping of Hybrid Systems}
+\subtitle{via Control Lyapunov Functions}
+\author{Ryan W. Sinnet and \blue{Aaron D. Ames}}
+\institute{Department of Mechanical Engineering\\ Texas A\&M University}
+\date{Friday, June 3, 2015\\ACC 2015, Chicago, IL}
+
+\makeatletter
+\def\input@path{{figs/}{sections/}}
+\makeatother
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+% motivation for energy shaping
+% explanation as optimal controller
+% slack variables for practical implementations
+% cart--spring system
+
+\input{01_introduction}
+\input{02_mechanics}
+\input{03_energy_shaping}
+\input{04_conclusion}
+
+\end{document}

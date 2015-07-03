@@ -1,0 +1,247 @@
+% Show the table of contents for the current section.
+\newcommand{\showtoc}{
+  \frame{
+    \frametitle{Overview}
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
+  }
+}
+
+\newtheorem{massump}{Modeling Assumptions}
+
+\definecolor[named]{blue}{RGB}{38,38,134}
+\definecolor[named]{red}{RGB}{214,38,38}
+
+\newcommand{\blue}[1]{{\em \textcolor{blue}{#1}}}
+\newcommand{\red}[1]{{\em \textcolor{red}{#1}}}
+
+\newcommand{\resclfparam}{\ensuremath{\varepsilon}\xspace}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.1mm}}
+
+% special Euclidean group
+\newcommand{\SE}{\ensuremath{\mathsf{SE}}}
+
+% symbol for hybrid system.
+\newcommand{\HS}{\ensuremath{\Sigma}\xspace}
+\newcommand{\HSbar}{\ensuremath{\bar{\Sigma}}\xspace}
+\newcommand{\HSeps}{\ensuremath{\HS_{\resclfparam}}\xspace}
+\newcommand{\HSepsbar}{\ensuremath{\HSbar_{\resclfparam}}\xspace}
+
+% symbol for hybrid control system
+\newcommand{\HCS}{\ensuremath{\HS_{c}}\xspace}
+\newcommand{\HCSbar}{\ensuremath{\HSbar_{c}}\xspace}
+
+% partial derivative
+\newcommand{\pd}[2]{\ensuremath{\frac{\partial{#1}}{\partial{#2}}}}
+
+% tuple for hybrid system
+\newcommand{\hsystem}{\ensuremath{(\Domain, \Guard, \ResetMap, \xf)}}
+
+% tuple for hybrid control system
+\newcommand{\hcsystem}{\ensuremath{(\Domain, \ControlSet, \Guard, \ResetMap, \FG)}}
+
+% labels for stance/nonstance toes/heels
+\newcommand{\sh}{\ensuremath{\mathsf{sh}}}
+\newcommand{\st}{\ensuremath{\mathsf{st}}}
+\newcommand{\nsh}{\ensuremath{\mathsf{nsh}}}
+\newcommand{\nst}{\ensuremath{\mathsf{nst}}}
+
+% domain labels
+\newcommand{\Domain}{\ensuremath{\D}\xspace}
+\newcommand{\ControlSet}{\ensuremath{\U}\xspace}
+\newcommand{\Guard}{\ensuremath{\S}\xspace}
+\newcommand{\DGraph}{\ensuremath{\Gamma}\xspace}
+\newcommand{\ResetMap}{\ensuremath{\Delta}\xspace}
+\newcommand{\F}{\ensuremath{\xf}}
+\newcommand{\FG}{\ensuremath{\xf, \xg}}
+\newcommand{\ConfigurationSpace}{\ensuremath{\Q}\xspace}
+\newcommand{\StateSpace}{\ensuremath{\X}\xspace}
+
+% executions
+\newcommand{\executionHS}{\ensuremath{\chi^{\HS}}}
+\newcommand{\periodicHS}{\ensuremath{\rho^{\HS}}}
+%\newcommand{\Ical}{\ensuremath{\mathcal{I}}}
+%\newcommand{\Xcal}{\ensuremath{\mathcal{X}}}
+%\newcommand{\Ccal}{\ensuremath{\mathcal{C}}}
+
+% real numbers
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\Rnn}{\ensuremath{\R_{\geq 0}}}
+\newcommand{\Rpd}{\ensuremath{\R_{> 0}}}
+\newcommand{\Rn}{\ensuremath{\R^{\ncfg}}}
+
+% natural numbers
+\newcommand{\Nat}{\ensuremath{\mathbb{N}}}
+
+% integers
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+
+% configurations
+\newcommand{\q}{\ensuremath{q}}
+\newcommand{\qe}{\ensuremath{\q_{e}}}
+
+% velocities
+\newcommand{\dq}{\ensuremath{\dot q}}
+\newcommand{\dqe}{\ensuremath{\dq_{e}}}
+
+% acceleration
+\newcommand{\ddq}{\ensuremath{\ddot q}}
+
+% control input
+\newcommand{\uu}{\ensuremath{u}}
+
+% symbol used to represent Lagrangians
+\newcommand{\Lagrangian}{\ensuremath{\mathcal{L}}\xspace}
+
+% symbol used to represent Jacobian matrices
+\newcommand{\Jacobian}{\ensuremath{J}}
+
+% unilateral constraint map
+\newcommand{\uc}{\ensuremath{h}}
+
+% kinetic and potential energy
+\newcommand{\Tnrg}{\ensuremath{T}}
+\newcommand{\Unrg}{\ensuremath{U}}
+
+\newcommand{\D}{\ensuremath{D}}
+
+% Coriolis Jacobian to find wrench for to dynamic model, i.e. C(q, qdot) * qdot
+\newcommand{\C}{\ensuremath{C}}
+
+\newcommand{\M}{\ensuremath{M}}
+\newcommand{\B}{\ensuremath{B}}
+
+% wrench resulting from gravity
+\newcommand{\G}{\ensuremath{G}}
+
+% symbol for wrenches
+\newcommand{\wrench}{\ensuremath{F}}
+
+% torque distribution matrix
+\newcommand{\W}{\ensuremath{W}\xspace}
+\newcommand{\Wdot}{\ensuremath{{\dot \W}}\xspace}
+\newcommand{\Wp}{\ensuremath{\W^{+}}\xspace}
+
+% dimension of configuration space
+\newcommand{\ncfg}{\ensuremath{n}}
+
+% dimension of control set/number of actuators 
+\newcommand{\nact}{\ensuremath{m}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Lclf}{\ensuremath{\mathsf{clf}}}
+\newcommand{\Llim}{\ensuremath{\mathsf{lim}}}
+
+\newcommand{\Aclf}{\ensuremath{A_{\Lclf}}}
+\newcommand{\bclf}{\ensuremath{b_{\Lclf}}}
+
+\newcommand{\Alim}{\ensuremath{A_{\Llim}}}
+\newcommand{\blim}{\ensuremath{b_{\Llim}}}
+
+
+% From acc paper
+\newcommand{\orbit}{\ensuremath{\mathscr{O}}\xspace}
+
+\newcommand{\x}{\ensuremath{x}}
+\newcommand{\dx}{\ensuremath{\dot{\x}}}
+\newcommand{\xst}{\ensuremath{\x^{*}}}
+\newcommand{\xp}{\ensuremath{\x^{+}}}
+\newcommand{\xm}{\ensuremath{\x^{-}}}
+\newcommand{\xz}{\ensuremath{\x(0)}}
+\newcommand{\xt}{\ensuremath{\x\art}\xspace}
+
+\newcommand{\nx}{\ensuremath{\left\|\x\right\|}}
+\newcommand{\nxz}{\ensuremath{\left\|\xz\right\|}}
+\newcommand{\nxt}{\ensuremath{\left\|\xt\right\|}}
+
+\newcommand{\qp}{\ensuremath{\q^{+}}}
+\newcommand{\dqp}{\ensuremath{\dq^{+}}}
+\newcommand{\qm}{\ensuremath{\q^{-}}}
+\newcommand{\dqm}{\ensuremath{\dq^{-}}}
+
+\newcommand{\art}{\ensuremath{(t)}}
+\newcommand{\artau}{\ensuremath{(\tau)}}
+\newcommand{\arzero}{\ensuremath{(0)}}
+
+\newcommand{\argsq}{\ensuremath{(\q)}}
+\newcommand{\argsdq}{\ensuremath{(\dq)}}
+\newcommand{\argsqdq}{\ensuremath{(\q, \dq)}}
+\newcommand{\argsqdqW}{\ensuremath{(\q, \dq, \W)}}
+\newcommand{\arx}{\ensuremath{(\x)}}
+\newcommand{\arxt}{\ensuremath{(\x\art)}}
+\newcommand{\arxzero}{\ensuremath{(\x\arzero)}}
+\newcommand{\argsqm}{\ensuremath{(\qm)}}
+\newcommand{\argsqdqm}{\ensuremath{(\qm, \dqm)}}
+
+
+\newcommand{\arxW}{\ensuremath{(\x, \W)}}
+
+\newcommand{\argsqdqtau}{\ensuremath{(\q\artau, \dq\artau)}}
+\newcommand{\argsqtau}{\ensuremath{(\q\artau)}}
+
+\newcommand{\argsqdqt}{\ensuremath{(\q\art, \dq\art)}}
+\newcommand{\argsqt}{\ensuremath{(\q\art)}}
+
+\newcommand{\xf}{\ensuremath{f}}
+\newcommand{\xg}{\ensuremath{g}}
+
+\newcommand{\xfbar}{\ensuremath{{\bar \xf}}}
+\newcommand{\xgbar}{\ensuremath{{\bar \xg}}}
+
+\newcommand{\Lie}[1]{\ensuremath{L_{#1}}}
+
+\newcommand{\U}{\ensuremath{U}}
+
+\newcommand{\T}{\ensuremath{\mathbb{T}}}
+\newcommand{\Q}{\ensuremath{\mathcal{Q}}}
+\newcommand{\X}{\ensuremath{\mathcal{X}}}
+
+\newcommand{\mueps}{\ensuremath{\mu_{\resclfparam}}}
+
+\newcommand{\V}{\ensuremath{V}}
+\newcommand{\dV}{\ensuremath{{\dot \V}}}
+
+\newcommand{\Ve}{\ensuremath{\V_{\resclfparam}}}
+\newcommand{\dVe}{\ensuremath{\dV_{\resclfparam}}}
+
+\renewcommand{\S}{\ensuremath{S}}
+
+\newcommand{\E}{\ensuremath{E}}
+\newcommand{\Ec}{\ensuremath{\E_{c}}}
+\newcommand{\Es}{\ensuremath{\E^{*}}}
+\newcommand{\Eref}{\ensuremath{\E_{\mathsf{ref}}}}
+\newcommand{\Ez}{\ensuremath{\E_{0}}}
+
+\newcommand{\boldzero}{\ensuremath{{\mathbf 0}}}
+
+\newcommand{\Poincare}{Poincar\'{e}\xspace}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\lambdamax}{\lambda_{\max}}
+\DeclareMathOperator*{\lambdamin}{\lambda_{\min}}
+
+\newcommand{\CG}{\ensuremath{H}}
+
+\newcommand{\vv}{\ensuremath{v}}
+
+\newcommand{\pspace}{\ensuremath{\hphantom{^{+}}}}
+
+\newcommand{\vfR}{\ensuremath{R}}
+
+\newcommand{\Deltaq}{\ensuremath{\Delta_{\q}}}
+\newcommand{\Deltadq}{\ensuremath{\Delta_{\dq}}}
+\newcommand{\DeltaW}{\ensuremath{\Delta_{\W}}}
+
+\newcommand{\nc}{\mathsf{nc}}
+
+% Constants
+\newcommand{\cc}{\ensuremath{c}}
+\newcommand{\ck}{\ensuremath{k}}
+
+% RES-CLF text
+\newcommand{\RESCLF}{RES-CLF\xspace}
+
+\newcommand{\HybridIndex}{\ensuremath{\mathcal{J}}}
+\newcommand{\HybridInterval}{\ensuremath{\mathcal{I}}}
+\newcommand{\HybridCurves}{\ensuremath{\mathcal{C}}}

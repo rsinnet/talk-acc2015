@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+
+MONTHS=(jan feb mar apr may jun jul aug sep oct nov dec)
+
+echo "Formatting month names in BibTeX database."
+
+cp $1 $2
+
+for month in ${MONTHS[@]} ; do
+    sed -i s/\{${month}\}/${month}/Ig $2
+done

@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+
+# pre-commit hook
+# Ensure that the document can be built before allowing a commit.
+
+cd $(git rev-parse --show-toplevel)
+
+git stash --quiet --keep-index --include-untracked
+
+make clean
+make
+RESULT=$?
+
+git stash pop --quiet
+
+if [ $RESULT -ne 0 ] ; then
+    echo "ERROR: Commit failed! Ensure that there are no errors in the project and try again. See log files for additional details."
+fi
+
+exit $RESULT

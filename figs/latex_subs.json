@@ -1,0 +1,121 @@
+{
+    "files": [
+	{
+	    "cg2d_reduced_coordinates":
+	    {
+		"fy": "$\\phi_{b}^{y}$",
+		"q": "$q_{1}$",
+		"Rb": "$R_{b}$",
+		"x": "$x$",
+		"z": "$z$"
+	    }
+	},
+	{
+	    "simple_hybrid_system":
+	    {
+		"D": "$\\Domain$",
+		"R": "$\\ResetMap$",
+		"xdot": "$\\dx  = \\xf\\arx$",
+		"S": "$\\Guard$"
+	    }
+	},
+	{
+	    "poincare_return_map":
+	    {
+		"D": "$\\Domain$",
+		"S": "$\\Guard$",
+		"Dx": "$\\x_{1} = \\Delta(\\phi_{T_{I}(\\x_{0})}(\\x_{0}))$",
+		"x0": "$\\x_{0}$",
+		"x1": "$\\x_{1}$",
+		"xdot": "$\\dx  = \\xf\\arx$",
+		"fx0": "$\\phi_{T_{I}(\\x_{0})}(\\x_{0})$",
+		"ftx0": "$\\phi_t(\\x_{0})$",
+		"ftx1": "$\\phi_t(\\x_{1})$"
+	    }
+	},
+	{
+	    "poincare_map":
+	    {
+		"D": "$\\Domain$",
+		"S": "$\\Guard$",
+		"Dx": "$\\x_{1} = \\ResetMap(\\x_{0})$",
+		"x0": "$\\x_{0}$",
+		"x1": "$\\x_{1}$",
+		"xdot": "$\\dx = \\xf\\arx$",
+		"ftx0": "$\\phi_t(\\x_{0})$",
+		"ftx1": "$\\phi_t(\\x_{1})$"
+	    }
+	},
+	{
+	    "hybrid_periodic_orbit":
+	    {
+		"D": "$\\Domain$",
+		"G": "$\\Guard$",
+		"Dx": "$\\ResetMap(\\xst)$",
+		"xstar": "$\\xst$",
+		"xdot": "$\\dx  = \\xf\\arx$"
+	    }
+	},
+	{
+	    "cg2d-7link-model":
+	    {
+		"q1": "$q_{1}$",
+		"q2": "$q_{2}$",
+		"q3": "$q_{3}$",
+		"q4": "$q_{4}$",
+		"q5": "$q_{5}$",
+		"q6": "$q_{6}$",
+		"q7": "$q_{7}$",
+		"M": "$\\mathcal{M}_{T}$",
+		"mc": "$\\mathcal{M}_{c}$",
+		"mt": "$\\mathcal{M}_{t}$",
+		"mf": "$\\mathcal{M}_{f}$"
+	    }
+	},
+	{
+	    "cg2d-5link-model":
+	    {
+		"q1": "$q_{1}$",
+		"q2": "$q_{2}$",
+		"q3": "$q_{3}$",
+		"q4": "$q_{4}$",
+		"q5": "$q_{5}$",
+		"M": "$M$",
+		"mc": "$m_{c}$",
+		"mt": "$m_{t}$"
+	    }
+	},
+	{
+	    "cg2d-3link-model":
+	    {
+		"q1": "$q_{1}$",
+		"q2": "$q_{2}$",
+		"q3": "$q_{3}$",
+		"M": "$M$",
+		"mc": "$m_{c}$",
+		"mt": "$m_{t}$"
+	    }
+	},
+	{
+	    "cg2d-slope-model":
+	    {
+		"q1": "$q_{2}$",
+		"q2": "$q_{1}$",
+		"M": "$M$",
+		"m": "$m$",
+		"l": "$\\ell / 2$",
+		"y": "$\\gamma$"
+	    }
+	},
+	{
+	    "cg2d-2link-model":
+	    {
+		"q1": "$q_{1}$",
+		"q2": "$q_{2}$",
+		"M": "$M$",
+		"mc": "$m_{c}$",
+		"mt": "$m_{t}$"
+	    }
+	}
+    ]
+}
