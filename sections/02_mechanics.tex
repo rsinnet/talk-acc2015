@@ -1,4 +1,4 @@
-\section{Mechanics}
+\section{Hybrid Systems}
 \showtoc
 
 \subsection{Hybrid Systems}
@@ -65,9 +65,9 @@
   \begin{align*}
     \Lagrangian\argsqdq = \Tnrg\argsqdq - \Unrg\argsqdq.
   \end{align*}
-  Dynamical motion in such a system with external forcing $\wrench = B\argsq u$ is governed by the Euler--Lagrange equation:
+  Dynamical motion in such a system is governed by the Euler--Lagrange equation:
   \begin{align*}
-    \frac{d}{dt} \pd{\Lagrangian}{\dq} - \pd{\Lagrangian}{\q} = B\argsq u.
+    \frac{d}{dt} \pd{\Lagrangian}{\dq} - \pd{\Lagrangian}{\q} = 0.
   \end{align*}
 \end{frame}
 
@@ -136,39 +136,6 @@
       \end{array}\right].
   \end{align*}
 \end{frame}
-
-\subsection{Solutions to Hybrid Systems}
-\begin{frame}[t]
-  \frametitle{Hybrid Flows}
-  A \alert{hybrid flow} of \HS is a tuple
-  \begin{align*}
-    \executionHS = \left( \HybridIndex, \HybridInterval, \HybridCurves \right),
-  \end{align*}
-  \vspace{-2em}
-  \begin{itemize}
-  \item $\HybridIndex = \{0, 1, 2, \ldots\} \subseteq \Nat$ is a finite or infinite \blue{indexing set},
-  \item $\HybridInterval = \{I_{i} \}_{i \in \HybridIndex}$ is a \blue{hybrid interval} where $I_{i} = [\tau_{i}, \tau_{i + 1}]$,
-  \item $\HybridCurves = \{c_{i} \}_{i \in \HybridIndex}$ is a \blue{collection of solutions} of $\xf$, i.e., ${\dot c}_{i}\art = \xf(c_{i}\art)$ $\forall i \in \HybridIndex$.
-  \end{itemize}
-
-  \only<1>{
-    \vspace{-1em}
-    \begin{figure}
-      \centering
-      \includegraphics[width=0.5\columnwidth]{hybridflow}
-    \end{figure}
-    \vspace{-1em}
-  }
-
-  \only<2>{
-    In addition, for every $i, i + 1 \in \HybridIndex$, it is required that
-    \begin{enumerate}
-    \item $c_{i}(\tau_{i+1}) \in \Guard$ and
-    \item $\ResetMap(c_{i}(\tau_{i+1})) = c_{i+1}(\tau_{i+1})$
-    \end{enumerate}
-  }
-\end{frame}
-
 
 \begin{frame}[t]
   \frametitle{Periodic Orbits}
@@ -242,75 +209,5 @@
       \includegraphics[width=1.0\columnwidth]{energy_cg2d_slope_model}
       \caption{Energy is exchanged between kinetic and potential in form.}
     \end{figure}    
-  }
-\end{frame}
-
-
-\begin{frame}[t]
-  \frametitle{Nonconservative Systems}
-  For a nonconservative system, energy flows out of the system at a rate of
-  $\wrench_{\nc} \cdot dq$. Thus, the following quantity is conserved:
-  \begin{align*}
-    \Ec &= \Tnrg\argsqdq + \Unrg\argsq - \int_{t_{0}}^{t} \! \wrench_{\nc} \cdot \frac{dq}{d\tau} \ d\tau\\
-    &= \E(q(0), \dot q(0)) = \Ez.
-  \end{align*}
-  This equation expresses the interplay between kinetic and potential energy and the flow of energy into and out of the system.
-\end{frame}
-
-
-\begin{frame}[t]
-  \frametitle{Example: 3-Link Biped}
-  \only<1>{
-    \begin{columns}
-      \column{1.8in}
-      Dynamic Model:
-      \begin{align*}
-        \M\argsq \ddq + \CG\argsqdq = \B\argsq \uu
-      \end{align*}
-      Control Law:
-      \begin{align*}
-        \uu &= \G\argsq - \G(\Psi\argsq)\\
-        \uu_3 &=-\ck_{d} (\dot \vartheta_{T}^{a}) -\ck_{p} (\vartheta_{T}^{a} - \vartheta_{T}^{d})
-      \end{align*}
-      \column{1.5in}
-      \begin{figure}
-        \centering
-        \def\svgwidth{1.0\columnwidth}
-        \input{cg2d-3link-model.eps_latex}
-        \vspace{-2em}
-        \caption{3-link biped configuration}
-      \end{figure}
-    \end{columns}
-  }
-
-  \only<2>{
-    \begin{figure}
-      \centering
-      \includegraphics[width=1.0\columnwidth]{energy_cg2d_3link}
-      \caption{Total energy is not conserved as the controller injects energy.}
-    \end{figure}
-  }
-
-    \only<3>{
-    \begin{figure}
-      \centering
-      \includegraphics[width=1.0\columnwidth]{energy_conserved_cg2d_3link}
-      \caption{Adding the energy storage term results in a conserved quantity.}
-    \end{figure}
-  }
-
-  \only<4>{
-    \begin{figure}
-      \includemedia[
-      %width=1.0\columnwidth,
-      %height=0.5\columnwidth,
-      width=.9\columnwidth,
-      height=0.45\columnwidth,
-      addresource=cg2d_3link_simulation.mp4,
-      activate=pageopen,
-      flashvars={source=cg2d_3link_simulation.mp4&loop=true&autoPlay=true}
-      ]{}{VPlayer9.swf}
-      \caption{Stable passive gaits can be found for a range of slopes.}
-    \end{figure}
   }
 \end{frame}
