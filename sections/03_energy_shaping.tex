@@ -50,17 +50,15 @@
       \HCSbar = \left\{
       \begin{array}{l l}
         \left.\begin{array}{r c l}
-          \hspace{.58em}\dx &=& \xfbar\argsqdq + \xgbar\argsq \, \uu
+          \hspace{.58em}\dx &=& \xf\argsqdq + \xg\argsq \, \uu
         \end{array}\right\}  & \mbox{if } \argsqdq \in \D \setminus \S,\\
         \left. \begin{array}{r c l}
           \qp &=& \Deltaq\argsqm\\
           \dqp &=& \Deltadq\argsqdqm
-        \end{array} \right\} & \mbox{if } \argsqdq \in \S,
+        \end{array} \right\} & \mbox{if } \argsqdq \in \S.
       \end{array}\right.
     \end{align*}
-    where $\xfbar\argsqdq := \xf\argsqdq$ and $\xgbar\argsq := \xg\argsq$ for
-    notational clarity. Total energy is conserved through the continuous
-    dynamics, i.e.,
+    Total energy is conserved through the continuous dynamics, i.e.,
     \begin{align*}
       \Ec\argsqdq := \Tnrg\argsqdq + \Unrg\argsq.
     \end{align*}
@@ -73,7 +71,7 @@
   $\V : \X \to \Rnn$ satisfying
   \begin{align*}
     &\cc_{1} \nx^{2} \leq \V\arx \leq \frac{\cc_{2}}{\resclfparam^{2}} \nx^{2},\\
-    &\inf_{\uu \in \U} \Lie{\xfbar}\V\arx + \Lie{\xgbar}\V\arx \, \uu +
+    &\inf_{\uu \in \U} \Lie{\xf}\V\arx + \Lie{\xg}\V\arx \, \uu +
     \frac{\cc_{3}}{\resclfparam} \V\arx \leq 0
   \end{align*}
   for $\cc_{1}, \cc_{2}, \cc_{3} > 0$ guarantees exponential convergence of $\V\arx$, i.e.,
@@ -92,7 +90,7 @@
   with $\Eref$ the constant energy level of the system on the orbit
   \orbit. For a \RESCLF, we seek a feedback control law, $\mu\arx$, such that
   \begin{align*}
-    \Lie{\xfbar} V\arx + \Lie{\xgbar} \V\arx \, \mu\arx + \frac{\cc_{3}}{\resclfparam} \V\arx &\leq 0.
+    \Lie{\xf} V\arx + \Lie{\xg} \V\arx \, \mu\arx + \frac{\cc_{3}}{\resclfparam} \V\arx &\leq 0.
   \end{align*}
 \end{frame}
 
@@ -112,6 +110,38 @@
 \end{frame}
 
 \begin{frame}[t]
+  \frametitle{Equivalence of Hybrid Periodic Orbits}
+  \begin{lemma}[Equivalence of Orbits]
+    Applying the energy shaping controller to the hybrid control system $\HCSbar$
+    results in the closed-loop hybrid system $\HSepsbar$ that demonstrates a
+    periodic orbit which is identical to the unshaped system $\HSbar$.
+  \end{lemma}
+  \begin{block}{Proof}
+    The energy of states $\xo \in \orbit$ is a constant,
+    $\E(\xo) \equiv \Eref$. By the choice of Lyapunov function,
+    $\V(\xo) \equiv 0$. In addition, $\dV(\xo) \equiv 0$ since
+    the system is conservative. And since the solution to the optimization
+    problem has cost $\uu^{T}(\xo) \uu(\xo) \equiv 0$, the
+    control effort is also zero. Hence the orbits are equivalent.
+  \end{block}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Boundedness of \TtI{} Function}
+  The difference in solutions between the shaped and unshaped systems can be
+  bounded by examining the difference in solutions:
+  \begin{lemma}[Boundedness of \TtI{}]
+    For the hybrid systems $\HSbar$ and $\HSepsbar$,
+    \begin{eqnarray}
+      \nonumber
+      &| \TIe(\Deltaxz) - \TI(\Deltaxz) | \leq \ATIe \nzdxzst,
+    \end{eqnarray}
+    where $\limeps \ATIe = 0$.
+  \end{lemma}
+\end{frame}
+
+
+\begin{frame}[t]
   \frametitle{Main Theorem}
   \begin{block}{Theorem [Energy Shaping]}
     Given an exponentially-stable cycle in a hybrid system, application
@@ -119,7 +149,7 @@
     \begin{align*}
       \HS_{\resclfparam} = \left\{
         \begin{array}{r c l l}
-          \dx &=& \xfbar\arx + \xgbar\arx \, \mueps\arx, & \x \in \D \setminus \S,\\
+          \dx &=& \xf\arx + \xg\arx \, \mueps\arx, & \x \in \D \setminus \S,\\
           \xp &=& \ResetMap(\xm), & \x \in \S,
         \end{array}\right.
     \end{align*}
@@ -138,9 +168,6 @@
     \end{enumerate}
   \end{block}
 \end{frame}
-
-
-\subsection{Simulations}
 
 \begin{frame}
   \frametitle{Example: Compass Gait as a Shaped System}
@@ -191,8 +218,8 @@
     \end{align*}
     where
     \begin{align*}
-      \Aclf = 2 \eta \Lie{\xgbar} \eta, &&
-      \bclf = -\resclfparam \eta^{2} - 2\eta \Lie{\xfbar} \eta,
+      \Aclf = 2 \eta \Lie{\xg} \eta, &&
+      \bclf = -\resclfparam \eta^{2} - 2\eta \Lie{\xf} \eta,
     \end{align*}
     with
     \begin{align*}
